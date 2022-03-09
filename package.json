@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/chriscousinsdev/discord-steamgroup-announcer#readme",
   "dependencies": {
-    "@iceprod/discord.js-commando": "github:chriscousinsdev/Commando"
+    "@iceprod/discord.js-commando": "github:chriscousinsdev/Commando#next",
+    "dotenv": "^16.0.0",
+    "steamcommunity": "^3.44.0"
   }
 }

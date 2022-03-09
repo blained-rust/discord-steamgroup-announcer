@@ -1,4 +1,5 @@
 const Commando = require('@iceprod/discord.js-commando');
+require('dotenv').config;
 
 module.exports = class AnnounceCommand extends Commando.Command {
 	constructor(client) {
@@ -14,6 +15,16 @@ module.exports = class AnnounceCommand extends Commando.Command {
 	}
 
 	async run(context, args) {
+		const community = context.client.steamCommunity;
+
+		community.postGroupAnnouncement(
+			'103582791471501805',
+			'Test',
+			'Test announcement via api',
+			(res) => {
+				console.log(res);
+			}
+		);
 		let message = context.message;
 	}
 };
