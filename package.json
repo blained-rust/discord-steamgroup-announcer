@@ -1,0 +1,23 @@
+{
+  "name": "discord-steamgroup-announcer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriscousinsdev/discord-steamgroup-announcer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chriscousinsdev/discord-steamgroup-announcer/issues"
+  },
+  "homepage": "https://github.com/chriscousinsdev/discord-steamgroup-announcer#readme",
+  "dependencies": {
+    "@iceprod/discord.js-commando": "github:chriscousinsdev/Commando"
+  }
+}
