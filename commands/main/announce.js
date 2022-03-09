@@ -1,5 +1,6 @@
 const Commando = require('@iceprod/discord.js-commando');
 require('dotenv').config;
+const { embeds } = require('../../embed-handler');
 
 module.exports = class AnnounceCommand extends Commando.Command {
 	constructor(client) {
@@ -11,20 +12,41 @@ module.exports = class AnnounceCommand extends Commando.Command {
 			argsType: 'multiple',
 			argsCount: 2,
 			ownerOnly: true,
+			args: [
+				{
+					key: 'heading',
+					prompt: 'What should your announcement heading be?',
+					type: 'string',
+				},
+				{
+					key: 'content',
+					prompt: 'What should your announcement content be?',
+					type: 'string',
+				},
+			],
 		});
 	}
 
-	async run(context, args) {
+	async run(context, { heading, content }) {
 		const community = context.client.steamCommunity;
+		let message = context.message;
 
 		community.postGroupAnnouncement(
-			'103582791471501805',
-			'Test',
-			'Test announcement via api',
+			process.env.STEAM_GROUP_ID,
+			heading,
+			content,
 			(res) => {
+				res ? console.log(res) : console.log('Success');
 				console.log(res);
 			}
 		);
-		let message = context.message;
+
+		message.channel.send({
+			embeds: [
+				embeds
+					.success(`Heading:\n${heading}\nContent:\n${content}`)
+					.setTitle('Announcement Posted'),
+			],
+		});
 	}
 };

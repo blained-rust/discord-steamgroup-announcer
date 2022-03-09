@@ -87,8 +87,8 @@ const steamLogin = async () => {
 client.on('ready', async () => {
 	console.log(`${client.user.username} is online`);
 
-	await steamLogin();
-	client.steamCommunity = community;
+	// await steamLogin();
+	// client.steamCommunity = community;
 	client.registry
 		.registerGroups([['main', 'Main Commands']])
 		.registerDefaults()
